@@ -1,19 +1,66 @@
 #include "CsBoBo_STM32F4XX_EXTI.h"
 #include "CsBoBo_STM32F4XX_NVIC.h"
+/*******使用方法***********************************************************/
+/*
 
+@例:	EXTIX_Init(GPIOA,GPIO_Pin_0,EXTI_Trigger_Falling,0,0);
 
+*/
+/*******说明******************************************************************/
+/*	
+说明：	初始化结束后编写对应中断函数，中断函数在本页
+		中断线0-4每个中断线对应一个中断函数，
+		中断线5-9共用中断函数EXTI9_5_IRQHandler，
+		中断线10-15共用中断函数EXTI15_10_IRQHandler。	
+*/
+/*******说明******************************************************************/
+/*
+(默认：EXTI_Mode_Interrupt中断模式，可换为EXTI_Mode_Event事件请求)
+//参数1：		GPIO_TypeDef
+					GPIOA
+					GPIOB
+					GPIOC
+					GPIOD
+					GPIOF
+					GPIOG
+				
+//参数2：对应引脚	
+					GPIO_Pin_0
+					GPIO_Pin_1
+					GPIO_Pin_2
+					GPIO_Pin_3
+					GPIO_Pin_4
+					GPIO_Pin_5
+					GPIO_Pin_6
+					GPIO_Pin_7
+					GPIO_Pin_8
+					GPIO_Pin_9
+					GPIO_Pin_10
+					GPIO_Pin_11
+					GPIO_Pin_12
+					GPIO_Pin_13
+					GPIO_Pin_14
+					GPIO_Pin_15
+					
+//参数3：对应模式	 
 
+						EXTI_Trigger 					描述
+					EXTI_Trigger_Falling 			设置输入线路下降沿为中断请求
+					EXTI_Trigger_Rising 			设置输入线路上升沿为中断请求
+					EXTI_Trigger_Rising_Falling 	设置输入线路上升沿和下降沿为中断请求
+
+//参数4：对应抢断优先级级别		取值范围(0,1,2,3)	数值越低优先级越高
+
+//参数5：对应响应优先级级别		取值范围(0,1,2,3)	数值越低优先级越高
+*/
+/*****************************************************************************/
+/***中断函数**********************************************************************/
 void EXTI0_IRQHandler(void)
 {		
 	if(EXTI_GetITStatus(EXTI_Line0) != RESET)//确保是否产生了EXTI Line中断 
 	{
 		//中断处理代码
-		if(GPIO_ReadOutputDataBit(GPIOH, GPIO_Pin_11)==1)//读取指定端口管脚的输出
-		{
-			GPIO_ResetBits(GPIOH,GPIO_Pin_11);
-		}else{
-			GPIO_SetBits(GPIOH,GPIO_Pin_11);
-		}
+
 		EXTI_ClearITPendingBit(EXTI_Line0);  //清除中断标志位
 	}  
 }
@@ -122,12 +169,7 @@ void EXTI15_10_IRQHandler(void)
 	if(EXTI_GetITStatus(EXTI_Line13) != RESET)//确保是否产生了EXTI Line中断 
 	{
 		//中断处理代码
-		if(GPIO_ReadOutputDataBit(GPIOH, GPIO_Pin_12)==1)//读取指定端口管脚的输出
-		{
-			GPIO_ResetBits(GPIOH,GPIO_Pin_12);
-		}else{
-			GPIO_SetBits(GPIOH,GPIO_Pin_12);
-		}		
+	
 		EXTI_ClearITPendingBit(EXTI_Line13);  //清除中断标志位
 	}
 	/******************************************************************************/	
