@@ -252,7 +252,7 @@ static uint8_t Get_EXTI_PinSource_PIN(u16 GPIO_PIN)
 	return 0;
 }
 
-static uint8_t Get_NVIC_IRQChannel(u16 GPIO_PIN)
+static uint8_t Get_NVIC_IRQChannel_EXTI(u16 GPIO_PIN)
 {
 	switch(GPIO_PIN)
 	{
@@ -351,7 +351,7 @@ void EXTIX_Init(GPIO_TypeDef* GPIOx,u16 GPIO_PIN,EXTITrigger_TypeDef  EXTI_Mode,
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);	//使能 SYSCFG 时钟 ，使用GPIO外部中断时必须使能SYSCFG时钟
 
-	exti_NVIC_IRQChannel=Get_NVIC_IRQChannel(GPIO_PIN);
+	exti_NVIC_IRQChannel=Get_NVIC_IRQChannel_EXTI(GPIO_PIN);
 	NVIC_Init_IRQChannel(exti_NVIC_IRQChannel,PreemptionPriority,SubPriority,ENABLE);//配置 NVIC
 
 	 
