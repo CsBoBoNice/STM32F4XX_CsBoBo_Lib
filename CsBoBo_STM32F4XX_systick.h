@@ -13,5 +13,8 @@
 void SysTick_delay_init(uint32_t SysTick_IRQn_Tim);
 void SysTick_delay_cycle(u16 nTime);	//延时nTime个SysTick中断周期
 
+void delay_init(u8 SYSCLK);
+void delay_ms(u16 nms);
+void delay_us(u32 nus);
 #endif
 
