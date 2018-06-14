@@ -119,7 +119,14 @@ static u8 Get_GPIO_num(GPIO_TypeDef* GPIOx)
 }
 
 /*初始化GPIO*/
-void GPIO_Common_Init(GPIO_TypeDef* GPIOx,u16 GPIO_PIN,GPIOMode_TypeDef GPIO_Mode,GPIOOType_TypeDef GPIO_OType,GPIOPuPd_TypeDef GPIO_PuPd,GPIOSpeed_TypeDef GPIO_Speed)
+void GPIO_Common_Init	(	
+							GPIO_TypeDef* GPIOx,
+							u16 GPIO_PIN,
+							GPIOMode_TypeDef GPIO_Mode,
+							GPIOOType_TypeDef GPIO_OType,
+							GPIOPuPd_TypeDef GPIO_PuPd,
+							GPIOSpeed_TypeDef GPIO_Speed
+						)
 {	
 	u8 GPIO_num;
 	
@@ -143,6 +150,13 @@ void GPIO_Common_Init(GPIO_TypeDef* GPIOx,u16 GPIO_PIN,GPIOMode_TypeDef GPIO_Mod
 }
 
 
+/*
+  * log:
 
+  *	2018年6月14日
+	实现基本初始化功能
+	Programmer:陈述
+	
+*/
 
 

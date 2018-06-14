@@ -363,3 +363,11 @@ void EXTIX_Init(GPIO_TypeDef* GPIOx,u16 GPIO_PIN,EXTITrigger_TypeDef  EXTI_Mode,
 	EXIT_Init_Config(GPIOx,GPIO_PIN,EXTI_Mode);
 }	
 
+/*
+  * log:
+
+  *	2018年6月14日
+	实现基本初始化功能
+	Programmer:陈述
+	
+*/

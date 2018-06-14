@@ -973,4 +973,11 @@ void Usart_SendHalfWord( USART_TypeDef * pUSARTx, uint16_t ch)
 }
 
 
+/*
+  * log:
 
+  *	2018年6月14日
+	实现基本初始化功能
+	Programmer:陈述
+	
+*/

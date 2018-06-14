@@ -7,7 +7,7 @@
 /*
 *********************************************************************************************
 
-	Basic_TIM_Init(TIM7,10,9000,1,0);	//初始化定时器TIM7,1MS进入一次中断
+	Basic_TIM_Init(TIM7,9000,10,1,0);	//初始化定时器TIM7,1MS进入一次中断
 	
 	注：默认不使能定时器，用TIM_Cmd()使能定时器
 	TIM_Cmd(TIM6, ENABLE);		// 计数器使能
@@ -113,7 +113,7 @@ static uint32_t RCC_APB1Periph_Basic_TIM(TIM_TypeDef* TIMx)
 	return 0;
 }
 
-void Basic_TIM_Init(TIM_TypeDef* TIMx,uint16_t TIM_Period,uint16_t TIM_Prescaler,uint8_t PreemptionPriority,uint8_t SubPriority)
+void Basic_TIM_Init(TIM_TypeDef* TIMx,uint16_t TIM_Prescaler,uint16_t TIM_Period,uint8_t PreemptionPriority,uint8_t SubPriority)
 {
     TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 	uint32_t Basic_TIM_CLK=0;

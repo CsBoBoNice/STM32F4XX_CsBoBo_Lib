@@ -10,4 +10,6 @@
 #include "CsBoBo_STM32F4XX_usart.h"
 #include "CsBoBo_STM32F4XX_systick.h"
 #include "CsBoBo_STM32F4XX_Basic_TIM.h"
+#include "CsBoBo_STM32F4XX_TIMx.h"
+#include "CsBoBo_STM32F4XX_PWM.h"
 #endif
